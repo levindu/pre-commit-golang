@@ -9,7 +9,7 @@ pre-commit-golang
 
 golang hooks for <http://pre-commit.com/>
 
-### Using these hooks
+## Using these hooks
 
 Add this to your `.pre-commit-config.yaml`
 
