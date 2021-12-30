@@ -5,5 +5,5 @@
 set -e -o pipefail
 
 exec 5>&1
-output="$(gofmt -s -w -l $(shell go list -f {{.Dir}} ./... | grep -v /vendor/) | tee /dev/fd/5)"
+output="$(gofmt -l -w "$@" | tee /dev/fd/5)"
 [[ -z "$output" ]]
