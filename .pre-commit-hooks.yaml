@@ -47,3 +47,9 @@
     files: '\.go$'
     language: 'script'
     description: "Runs `go get -u -v ./...` to update all dependencies, requires golang"
+-   id: goimports-reviser
+    name: 'goimports-reviser'
+    entry: run-goimports-reviser.sh
+    files: '\.go$'
+    language: 'script'
+    description: "Runs `goimports-reviser -format ./...` to format all go files"
