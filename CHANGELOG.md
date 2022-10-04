@@ -1,3 +1,11 @@
+## v0.7.0 (2022-10-04)
+
+
+- fix: executable (#5)
+- * fix: add execute permissions to new commands
+
+* fix: commitizen configuration
+
 ## 0.6.0 (2022-10-04)
 
 ### Feat
