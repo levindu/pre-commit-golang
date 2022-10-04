@@ -1,3 +1,9 @@
+## 0.6.0 (2022-10-04)
+
+### Feat
+
+- add go imports reviser hook (#4)
+
 ## 0.5.2 (2021-12-30)
 
 ### Fix
