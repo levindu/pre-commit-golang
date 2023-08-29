@@ -58,4 +58,4 @@
     entry: run-goimports-reviser.sh
     files: '\.go$'
     language: 'script'
-    description: "Runs `goimports-reviser -format ./...` to format all go files"
+    description: "Runs `goimports-reviser -format [args] ./...` to format all go files"
