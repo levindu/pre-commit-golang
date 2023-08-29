@@ -59,3 +59,9 @@
     files: '\.go$'
     language: 'script'
     description: "Runs `goimports-reviser -format [args] ./...` to format all go files"
+-   id: revive
+    name: 'revive'
+    entry: run-revive.sh
+    files: '\.go$'
+    language: 'script'
+    description: "Runs `revive [args] ./...` to lint all go files"
