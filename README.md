@@ -28,4 +28,4 @@ Add this to your `.pre-commit-config.yaml`
 - `go-unit-tests` - Run `go test` to all project files with coverage
 - `go-mod-tidy` - Run `go mod tidy -v`, requires golang
 - `go-get-update` - Run `go get -u -v ./...` to update all project dependencies if there are any available
-- `goimports-reviser` - Run `goimports-reviser -format ./...` to format all golang files (requires [goimports-reviser cli](https://github.com/incu6us/goimports-reviser))
+- `goimports-reviser` - Run `goimports-reviser -format [args] ./...` to format all golang files (requires [goimports-reviser cli](https://github.com/incu6us/goimports-reviser))

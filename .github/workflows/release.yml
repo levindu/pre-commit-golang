@@ -8,7 +8,6 @@ on:
 env:
   GIT_USER_EMAIL: ${{ secrets.GIT_EMAIL }}
   GIT_USER_NAME: ${{ secrets.GIT_NAME }}
-  GOPRIVATE: github.com/Drafteame
 
 permissions:
   contents: write
@@ -45,7 +44,7 @@ jobs:
           python -m pip install -U commitizen
           cz bump --changelog --yes
           export REV=`cz version --project`
-          echo "::set-output name=version::$REV"
+          echo "version=$REV" >> $GITHUB_OUTPUT
 
       - name: Push changes
         uses: Woile/github-push-action@master
@@ -69,9 +68,6 @@ jobs:
           fetch-depth: 0
           token: "${{ secrets.ACCESS_TOKEN }}"
           ref: "master"
-
-      - name: Config private packages
-        run:  git config --global url.https://${{ secrets.ACCESS_TOKEN }}@github.com/Drafteame.insteadOf https://github.com/Drafteame
 
       - name: Release
         uses: softprops/action-gh-release@v1
