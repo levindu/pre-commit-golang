@@ -1,3 +1,8 @@
+## v0.9.1 (2023-08-29)
+
+
+- fix: add execution permissions to sh files (#10)
+
 ## v0.9.0 (2023-08-29)
 
 
