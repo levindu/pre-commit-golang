@@ -1,3 +1,9 @@
+## v0.9.0 (2023-08-29)
+
+
+- feat: add hook to execute revive lint (#9)
+- chore: add forward arguments to goimports-reviser hook (#8)
+
 ## v0.8.1 (2023-03-28)
 
 
