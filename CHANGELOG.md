@@ -1,3 +1,8 @@
+## v0.10.0 (2023-09-06)
+
+
+- feat: run revive only on staged files (#11)
+
 ## v0.9.1 (2023-08-29)
 
 
