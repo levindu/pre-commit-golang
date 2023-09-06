@@ -29,3 +29,4 @@ Add this to your `.pre-commit-config.yaml`
 - `go-mod-tidy` - Run `go mod tidy -v`, requires golang
 - `go-get-update` - Run `go get -u -v ./...` to update all project dependencies if there are any available
 - `goimports-reviser` - Run `goimports-reviser -format [args] ./...` to format all golang files (requires [goimports-reviser cli](https://github.com/incu6us/goimports-reviser))
+- `revive` - Runs `revive` to inspect all staged files (requires [revive](https://github.com/mgechev/revive))
