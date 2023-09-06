@@ -9,10 +9,16 @@ if [ $# -gt 0 ]; then
   command="$command $@"
 fi
 
-command="$command ./..."
+staged_files=$(git diff --cached --name-only | grep '\.go$' | tr '\n' ' ')
 
-echo "Running: $command"
+if [ -n "$staged_files" ]; then
+  # If "files" is not empty, run the revive command
+  command="$command $staged_files"
 
-exec 5>&1
-output="$($command | tee /dev/fd/5)"
-[[ -z "$output" ]]
+  echo "Running: $command"
+
+  exec 5>&1
+  output="$($command | tee /dev/fd/5)"
+  [[ -z "$output" ]]
+fi
+
