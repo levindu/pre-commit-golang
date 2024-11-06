@@ -27,11 +27,10 @@ jobs:
           token: "${{ secrets.ACCESS_TOKEN }}"
           ref: "master"
 
-      - name: Setup Langs
-        uses: Drafteame/setup-ci-langs@v0.8.0
+      - name: Setup Python
+        uses: actions/setup-python@v5
         with:
-          python: 'true'
-          go: 'false'
+          python-version: 3.12.x
 
       - name: Config Git User
         run: |
