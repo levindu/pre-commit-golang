@@ -37,10 +37,10 @@ jobs:
         name: Create bump and changelog
         uses: commitizen-tools/commitizen-action@master
         with:
-          commitizen_version: "v3.29.1"
           github_token: ${{ secrets.GITHUB_TOKEN }}
           git_name: ${{ secrets.GIT_NAME }}
           git_email: ${{ secrets.GIT_EMAIL }}
+          changelog: false
           branch: master
 
       - name: Print Version
