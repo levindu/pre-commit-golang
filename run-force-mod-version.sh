@@ -3,6 +3,10 @@
 set -e -o pipefail
 
 version="1.22"
+if [ $# -gt 0 ]; then
+  version="$1"
+fi
+
 
 function sed_replace() {
   os=$(uname)
@@ -14,9 +18,11 @@ function sed_replace() {
   fi
 }
 
-if [ $# -gt 0 ]; then
-  version="$1"
-fi
+function get_base_dir() {
+  file="$1"
+  dir=$(dirname "$file")
+  echo "$dir"
+}
 
 # Find all go.mod and go.work files recursively
 files=$(find . -type f \( -name "go.mod" -o -name "go.work" \))
@@ -27,6 +33,18 @@ if [ -z "$files" ]; then
 fi
 
 for file in $files; do
+  # Run go mod tidy if file is go.mod
+  if [[ "$file" == *"go.mod" ]]; then
+    echo "Running go mod tidy in $(get_base_dir "$file")"
+    (cd "$(get_base_dir "$file")" && go mod tidy)
+  fi
+
+  # Run go work sync if file is go.work
+  if [[ "$file" == *"go.work" ]]; then
+    echo "Running go work sync in $(get_base_dir "$file")"
+    (cd "$(get_base_dir "$file")" && go work sync)
+  fi
+
   # Remove gotoolchain line if present
   if grep -q "^toolchain go" "$file"; then
     echo "Removing gotoolchain version from $file"
@@ -41,11 +59,7 @@ for file in $files; do
       sed_replace "$pattern" "$file"
     fi
   fi
-
-  # Add file to git if it has changed
-  if git diff --quiet "$file"; then
-    git add "$file"
-  fi
 done
 
-
+git add --all
+exit 0
