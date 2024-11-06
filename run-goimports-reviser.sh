@@ -3,13 +3,7 @@
 
 set -e -o pipefail
 
-command="goimports-reviser -format"
-
-if [ $# -gt 0 ]; then
-  command="$command $@"
-fi
-
-command="$command ./..."
+command="goimports-reviser -format ./..."
 
 echo "Running: $command"
 

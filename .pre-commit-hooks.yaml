@@ -57,6 +57,7 @@
     name: 'goimports-reviser'
     entry: run-goimports-reviser.sh
     files: '\.go$'
+    pass_filenames: false
     language: 'script'
     description: "Runs `goimports-reviser -format [args] ./...` to format all go files"
 -   id: revive
@@ -65,3 +66,9 @@
     files: '\.go$'
     language: 'script'
     description: "Runs `revive [args] ./...` to lint all go files"
+-   id: force-mod-version
+    name: 'force-mod-version'
+    entry: run-force-mod-version.sh
+    pass_filenames: false
+    language: 'script'
+    description: "Force go version in go.mod and go.work files"
