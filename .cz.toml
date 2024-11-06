@@ -1,8 +1,7 @@
 [tool.commitizen]
 name = "cz_customize"
-version = "0.10.1"
+version = "0.11.0"
 tag_format = "v$version"
-changelog = false
 
 [tool.commitizen.customize]
 schema_pattern = "(break|build|ci|docs|feat|fix|perf|refactor|style|test|chore|revert|bump|deps)(\\(\\S+\\))?!?:(\\s.*)"
