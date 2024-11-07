@@ -3,10 +3,11 @@
 
 set -e -o pipefail
 
-command="goimports-reviser -format ./..."
+goimports-reviser -format ./...
 
-echo "Running: $command"
+if [ $? -ne 0 ]; then
+  exit 2
+fi
 
-exec 5>&1
-output="$($command | tee /dev/fd/5)"
-[[ -z "$output" ]]
+git add --all
+exit 0
