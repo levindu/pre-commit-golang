@@ -5,6 +5,12 @@ set -e -o pipefail
 
 command="revive"
 
+if ! command -v revive &> /dev/null ; then
+    echo "revive not installed or available in the PATH" >&2
+    echo ">>> go install github.com/mgechev/revive@latest" >&2
+    go install github.com/mgechev/revive@latest >&2
+fi
+
 if [ $# -gt 0 ]; then
   command="$command $@"
 fi

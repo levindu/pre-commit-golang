@@ -6,8 +6,8 @@ set -e -o pipefail
 
 if ! command -v goimports &> /dev/null ; then
     echo "goimports not installed or available in the PATH" >&2
-    echo "please check https://pkg.go.dev/golang.org/x/tools/cmd/goimports" >&2
-    exit 1
+    echo ">>> go install golang.org/x/tools/cmd/goimports@latest" >&2
+    go install golang.org/x/tools/cmd/goimports@latest >&2
 fi
 
 output="$(goimports -l -w "$@")"
